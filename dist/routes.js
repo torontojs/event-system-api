@@ -6,6 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const router_1 = __importDefault(require("@curveball/router"));
 const controller_1 = __importDefault(require("./home/controller"));
 const collection_1 = __importDefault(require("./event/controller/collection"));
-const routes = [router_1.default("/", controller_1.default), router_1.default("/event", collection_1.default)];
-exports.default = routes;
+const collection_2 = __importDefault(require("./host/controller/collection"));
+const collection_3 = __importDefault(require("./schedule/controller/collection"));
+exports.default = [
+    router_1.default("/", controller_1.default),
+    router_1.default("/event", collection_1.default),
+    router_1.default("/host", collection_2.default),
+    router_1.default("/schedule", collection_3.default),
+];
 //# sourceMappingURL=routes.js.map

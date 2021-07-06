@@ -1,15 +1,13 @@
 import Controller from "@curveball/controller";
 import { Context } from "@curveball/core";
 
-class EventCollection extends Controller {
+class ScheduleCollection extends Controller {
   get(ctx: Context) {
     ctx.response.type = "application/json";
     ctx.response.body = {
-      title: "Hello event!",
+      title: "Hello Schedule!",
     };
   }
 }
 
-export default new EventCollection();
-
-//set of links to the actual event resource
+export default new ScheduleCollection();

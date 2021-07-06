@@ -1,0 +1,1 @@
+{"version":3,"file":"collection.js","sourceRoot":"","sources":["../../../src/host/controller/collection.ts"],"names":[],"mappings":";;;;;AAAA,uEAA+C;AAG/C,MAAM,cAAe,SAAQ,oBAAU;IACrC,GAAG,CAAC,GAAY;QACd,GAAG,CAAC,QAAQ,CAAC,IAAI,GAAG,kBAAkB,CAAC;QACvC,GAAG,CAAC,QAAQ,CAAC,IAAI,GAAG;YAClB,KAAK,EAAE,aAAa;SACrB,CAAC;IACJ,CAAC;CACF;AAED,kBAAe,IAAI,cAAc,EAAE,CAAC"}
