@@ -5,7 +5,25 @@ class EventCollection extends Controller {
   get(ctx: Context) {
     ctx.response.type = "application/json";
     ctx.response.body = {
-      title: "Hello event!",
+      _links: {
+        self: {
+          href: "/event/",
+        },
+
+        item: [
+          {
+            href: "/event/1",
+            title: "Event name",
+          },
+
+          {
+            href: "/event/2",
+            title: "Event name",
+          },
+        ],
+      },
+
+      total: 3,
     };
   }
 }
