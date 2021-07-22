@@ -3,6 +3,7 @@ import accessLog from "@curveball/accesslog";
 import problem from "@curveball/problem";
 import bodyParser from "@curveball/bodyparser";
 import routes from "./routes";
+import cors from "@curveball/cors";
 
 const app = new Application();
 
@@ -16,6 +17,8 @@ app.use(problem());
 // The bodyparser middleware is responsible for parsing JSON and url-encoded
 // request bodies, and populate ctx.request.body.
 app.use(bodyParser());
+
+app.use(cors());
 
 app.use(...routes);
 

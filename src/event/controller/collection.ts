@@ -2,6 +2,10 @@ import Controller from "@curveball/controller";
 import { Context } from "@curveball/core";
 
 class EventCollection extends Controller {
+  options(ctx: Context) {
+    console.log("hey");
+  }
+
   get(ctx: Context) {
     ctx.response.type = "application/json";
     ctx.response.body = {
@@ -28,6 +32,6 @@ class EventCollection extends Controller {
   }
 }
 
-export default new EventCollection();
+export default EventCollection;
 
 //set of links to the actual event resource

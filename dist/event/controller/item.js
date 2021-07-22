@@ -9,16 +9,16 @@ class Event extends controller_1.default {
     async get(ctx) {
         ctx.response.body = {
             _links: {
-                self: { href: "http://localhost:8500/event/1" },
+                self: { href: "http://localhost:8500/event/" },
                 "attendee-collection": {
                     href: "/event/1/attendees/",
                     title: "Event name attendee's",
                 },
                 "host-collection": {
-                    href: "/event/1/host",
+                    href: "/event/host",
                     title: "Event name host",
                 },
-                "schedule-collection": "/event/1/schedulle",
+                "schedule-collection": "/event/schedulle",
             },
             name: "Event name",
             type: "'online' || 'in-person'",

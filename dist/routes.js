@@ -11,7 +11,7 @@ const collection_3 = __importDefault(require("./schedule/controller/collection")
 const collection_4 = __importDefault(require("./eventList/controller/collection"));
 exports.default = [
     router_1.default("/", controller_1.default),
-    router_1.default("/event", collection_1.default),
+    router_1.default("/event", new collection_1.default()),
     router_1.default("/host", collection_2.default),
     router_1.default("/schedule", collection_3.default),
     router_1.default("/eventList", collection_4.default),

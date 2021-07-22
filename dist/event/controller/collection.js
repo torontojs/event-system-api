@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = __importDefault(require("@curveball/controller"));
 class EventCollection extends controller_1.default {
+    options(ctx) {
+        console.log("hey");
+    }
     get(ctx) {
         ctx.response.type = "application/json";
         ctx.response.body = {
@@ -27,6 +30,6 @@ class EventCollection extends controller_1.default {
         };
     }
 }
-exports.default = new EventCollection();
+exports.default = EventCollection;
 //set of links to the actual event resource
 //# sourceMappingURL=collection.js.map
