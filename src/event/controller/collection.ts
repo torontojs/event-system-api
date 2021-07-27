@@ -3,15 +3,16 @@ import { Context } from "@curveball/core";
 
 class EventCollection extends Controller {
   options(ctx: Context) {
-    console.log("hey");
+    console.log("heyhey");
   }
 
   get(ctx: Context) {
     ctx.response.type = "application/json";
+    console.log("hey");
     ctx.response.body = {
       _links: {
         self: {
-          href: "/event/",
+          href: "/event",
         },
 
         item: [

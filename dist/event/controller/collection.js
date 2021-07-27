@@ -6,14 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = __importDefault(require("@curveball/controller"));
 class EventCollection extends controller_1.default {
     options(ctx) {
-        console.log("hey");
+        console.log("heyhey");
     }
     get(ctx) {
         ctx.response.type = "application/json";
+        console.log("hey");
         ctx.response.body = {
             _links: {
                 self: {
-                    href: "/event/",
+                    href: "/event",
                 },
                 item: [
                     {

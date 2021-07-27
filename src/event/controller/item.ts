@@ -6,7 +6,7 @@ export default class Event extends Controller {
   async get(ctx: Context) {
     ctx.response.body = {
       _links: {
-        self: { href: "http://localhost:8500/event/" },
+        self: { href: "http://localhost:8500/event" },
         "attendee-collection": {
           href: "/event/1/attendees/",
           title: "Event name attendee's",
@@ -15,7 +15,7 @@ export default class Event extends Controller {
           href: "/event/host",
           title: "Event name host",
         },
-        "schedule-collection": "/event/schedulle",
+        "schedule-collection": "/event/schedule",
       },
 
       name: "Event name",
@@ -29,5 +29,6 @@ export default class Event extends Controller {
       host_name: "Elon Musk",
       host_picture: "https://www.google.com/imgage1",
     };
+    console.log("hello");
   }
 }
