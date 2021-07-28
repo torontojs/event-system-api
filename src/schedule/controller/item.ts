@@ -5,7 +5,7 @@ export default class Schedule extends Controller {
   async get(ctx: Context) {
     ctx.response.body = {
       _link: {
-        self: { href: "http://localhost:8500/schedule" },
+        self: { href: "http://localhost:8500/event" },
         "schedule-collection": "/event/schedule",
       },
       start: "Start: 6:30pm.",
