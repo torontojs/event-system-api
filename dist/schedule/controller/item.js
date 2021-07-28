@@ -8,7 +8,7 @@ class Schedule extends controller_1.default {
     async get(ctx) {
         ctx.response.body = {
             _link: {
-                self: { href: "http://localhost:8500/schedule" },
+                self: { href: "http://localhost:8500/event" },
                 "schedule-collection": "/event/schedule",
             },
             start: "Start: 6:30pm.",
