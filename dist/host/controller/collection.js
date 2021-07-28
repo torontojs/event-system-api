@@ -8,7 +8,22 @@ class HostCollection extends controller_1.default {
     get(ctx) {
         ctx.response.type = "application/json";
         ctx.response.body = {
-            title: "Hello host!",
+            _links: {
+                self: {
+                    href: "/event/1/hosts",
+                    title: "Event name host"
+                },
+                event: { "href": "/event/1" },
+                item: [
+                    {
+                        href: "/event/1/host/1"
+                    },
+                    {
+                        href: "/event/2/host/2"
+                    }
+                ]
+            },
+            "total": 3
         };
     }
 }
