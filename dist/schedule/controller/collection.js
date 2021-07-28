@@ -8,7 +8,21 @@ class ScheduleCollection extends controller_1.default {
     get(ctx) {
         ctx.response.type = "application/json";
         ctx.response.body = {
-            title: "Hello Schedule!",
+            _links: {
+                self: {
+                    href: "/event/1/schedulles",
+                },
+                event: { href: "/event/1" },
+                item: [
+                    {
+                        href: "/event/1/schedulle/1",
+                    },
+                    {
+                        href: "/event/2/schedulle/2",
+                    },
+                ],
+            },
+            total: 2,
         };
     }
 }
