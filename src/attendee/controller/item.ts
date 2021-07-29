@@ -1,15 +1,16 @@
 import Controller from "@curveball/controller";
 import { Context } from "@curveball/core";
 
-export default class Host extends Controller {
+export default class Attendee extends Controller {
   async get(ctx: Context) {
     ctx.response.body = {
       _link: {
         self: { href: "http://localhost:8500/event" },
-        "host-collection": "/event/host",
+        "attendee-collection": "/event/attendee",
       },
-      host_name: "Sponge Bob",
-      host_picture: "./images/spongebob.png",
+      //   full_name: "Sponge Bob",
+      //   email: "SpongeBob@gmail.com",
+      eventAttendees: "60 people attending.",
     };
   }
 }

@@ -11,19 +11,19 @@ class HostCollection extends controller_1.default {
             _links: {
                 self: {
                     href: "/event/1/hosts",
-                    title: "Event name host"
+                    title: "Event host",
                 },
-                event: { "href": "/event/1" },
+                event: { href: "/event/1" },
                 item: [
                     {
-                        href: "/event/1/host/1"
+                        href: "/event/1/host/1",
                     },
                     {
-                        href: "/event/2/host/2"
-                    }
-                ]
+                        href: "/event/2/host/2",
+                    },
+                ],
             },
-            "total": 3
+            total: 3,
         };
     }
 }

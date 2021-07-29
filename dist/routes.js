@@ -12,11 +12,13 @@ const collection_4 = __importDefault(require("./eventList/controller/collection"
 const item_1 = __importDefault(require("./host/controller/item"));
 const item_2 = __importDefault(require("./event/controller/item"));
 const item_3 = __importDefault(require("./schedule/controller/item"));
+const item_4 = __importDefault(require("./attendee/controller/item"));
 exports.default = [
     router_1.default("/", controller_1.default),
     router_1.default("/event", new collection_1.default()),
     router_1.default("/event/:id", new item_2.default()),
     router_1.default("/schedule/:id", new item_3.default()),
+    router_1.default("/attendee/:id", new item_4.default()),
     router_1.default("/host/:id", new item_1.default()),
     router_1.default("/host", collection_2.default),
     router_1.default("/schedule", collection_3.default),
