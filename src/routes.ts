@@ -8,6 +8,7 @@ import hostController from "./host/controller/item";
 import eventController from "./event/controller/item";
 import scheduleController from "./schedule/controller/item";
 import attendeeController from "./attendee/controller/item";
+import eventListController from "./eventList/controller/item";
 
 export default [
   router("/", homeController),
@@ -16,6 +17,7 @@ export default [
   router("/schedule/:id", new scheduleController()),
   router("/attendee/:id", new attendeeController()),
   router("/host/:id", new hostController()),
+  router("/eventList", new eventListController()),
   router("/host", hostCollectionController),
   router("/schedule", scheduleCollectionController),
   router("/eventList", eventListCollectionController),

@@ -8,7 +8,20 @@ class EventlistCollection extends controller_1.default {
     get(ctx) {
         ctx.response.type = "application/json";
         ctx.response.body = {
-            title: "Hello Event list!",
+            _links: {
+                self: {
+                    href: "/eventList",
+                },
+                item: [
+                    {
+                        href: "/event/1",
+                    },
+                    {
+                        href: "/event/2",
+                    },
+                ],
+            },
+            total: 2,
         };
     }
 }
