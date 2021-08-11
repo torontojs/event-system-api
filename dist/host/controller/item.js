@@ -12,7 +12,7 @@ class Host extends controller_1.default {
                 "host-collection": "/event/host",
             },
             host_name: "Sponge Bob",
-            host_picture: "./images/spongebob.png",
+            host_picture: "",
         };
     }
 }

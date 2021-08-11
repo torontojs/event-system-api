@@ -9,7 +9,7 @@ export default class Host extends Controller {
         "host-collection": "/event/host",
       },
       host_name: "Sponge Bob",
-      host_picture: "./images/spongebob.png",
+      host_picture: "",
     };
   }
 }
