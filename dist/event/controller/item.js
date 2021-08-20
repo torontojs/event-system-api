@@ -7,10 +7,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = __importDefault(require("@curveball/controller"));
 class Event extends controller_1.default {
     async get(ctx) {
+        // integration with airtable
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
+        // promise table.select().firstPage().then(result => { ... })
         return base("Events")
-            .find(ctx.params.id)
+            .find("reccwJa2KqDrGo5Wn")
             .then((record) => {
             console.log("Retrieved", record.id);
             ctx.response.body = {
@@ -27,11 +29,11 @@ class Event extends controller_1.default {
                     "schedule-collection": "/event/schedule",
                 },
                 name: record.get("name"),
-                type: "",
-                address: "",
-                start_date: 1234567890,
-                end_date: 1234567891,
-                description: "",
+                start_date: record.get("start_time"),
+                end_date: record.get("end_time"),
+                type: record.get("type"),
+                address: record.get("address"),
+                description: record.get("description"),
             };
         });
     }

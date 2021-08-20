@@ -4,13 +4,15 @@ import { Context } from "@curveball/core";
 
 export default class Event extends Controller {
   async get(ctx: Context) {
+    // integration with airtable
     var Airtable = require("airtable");
     var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base(
       "appzwXHVTy5YZFalo"
     );
 
+    // promise table.select().firstPage().then(result => { ... })
     return base("Events")
-      .find(ctx.params.id)
+      .find("reccwJa2KqDrGo5Wn")
       .then((record: any) => {
         console.log("Retrieved", record.id);
         ctx.response.body = {
@@ -28,11 +30,11 @@ export default class Event extends Controller {
           },
 
           name: record.get("name"),
-          type: "",
-          address: "",
-          start_date: 1234567890,
-          end_date: 1234567891,
-          description: "",
+          start_date: record.get("start_time"),
+          end_date: record.get("end_time"),
+          type: record.get("type"),
+          address: record.get("address"),
+          description: record.get("description"),
         };
       });
   }

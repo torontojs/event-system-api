@@ -6,14 +6,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = __importDefault(require("@curveball/controller"));
 class Host extends controller_1.default {
     async get(ctx) {
-        ctx.response.body = {
-            _link: {
-                self: { href: "http://localhost:8500/event" },
-                "host-collection": "/event/host",
-            },
-            host_name: "Sponge Bob",
-            host_picture: "",
-        };
+        var Airtable = require("airtable");
+        var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
+        return base("Events")
+            .find("recuzHRtM1pnrucq4")
+            .then((record) => {
+            console.log("Retrieved", record.id);
+            ctx.response.body = {
+                _link: {
+                    self: { href: "http://localhost:8500/event" },
+                    "host-collection": "/event/host",
+                },
+                host_name: record.get("host_name"),
+                // host_picture: record.get("host_picture"),
+            };
+        });
     }
 }
 exports.default = Host;

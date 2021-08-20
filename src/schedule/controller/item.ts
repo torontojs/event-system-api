@@ -3,15 +3,25 @@ import { Context } from "@curveball/core";
 
 export default class Schedule extends Controller {
   async get(ctx: Context) {
-    ctx.response.body = {
-      _link: {
-        self: { href: "http://localhost:8500/event" },
-        "schedule-collection": "/event/schedule",
-      },
-      start: "Start: 6:30pm.",
-      codeAlong: "Code Along: 7:00pm.",
-      questionA: "Q & A: 8:30pm.",
-      end: "End: 9:00pm.",
-    };
+    var Airtable = require("airtable");
+    var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base(
+      "appzwXHVTy5YZFalo"
+    );
+    return base("Events")
+      .find("recdhczylXmFkomdh")
+      .then((record: any) => {
+        console.log("Retrieved", record.id);
+
+        ctx.response.body = {
+          _link: {
+            self: { href: "http://localhost:8500/event" },
+            "schedule-collection": "/event/schedule",
+          },
+          start: record.get("start"),
+          activity: record.get("activity"),
+          closing: record.get("closing"),
+          end: record.get("end"),
+        };
+      });
   }
 }
