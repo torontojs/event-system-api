@@ -17,9 +17,9 @@ class LinkSection extends controller_1.default {
                     self: { href: "http://localhost:8500/event" },
                     "linkSection-collection": "/event/linkSection",
                 },
-                start_time: record.get("start_date"),
-                end_time: record.get("end_date"),
-                eventLink: record.get("link"),
+                date: record.get("date"),
+                info: record.get("info"),
+                eventLink: record.get("eventLink"),
             };
         });
     }

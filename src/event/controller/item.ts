@@ -28,7 +28,6 @@ export default class Event extends Controller {
             },
             "schedule-collection": "/event/schedule",
           },
-
           name: record.get("name"),
           start_date: record.get("start_time"),
           end_date: record.get("end_time"),
