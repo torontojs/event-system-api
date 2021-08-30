@@ -4,7 +4,7 @@ import EventCollection from "./event/controller/collection";
 import hostCollectionController from "./host/controller/collection";
 import scheduleCollectionController from "./schedule/controller/collection";
 import eventListCollectionController from "./eventList/controller/collection";
-import eventLinkCollectionController from "./eventLink/controller/collection";
+import eventLinkCollection from "./eventLink/controller/collection";
 import linkSectionCollectionController from "./linkSection/controller/collection";
 import hostController from "./host/controller/item";
 import eventController from "./event/controller/item";
@@ -27,6 +27,6 @@ export default [
   router("/linkSection", linkSectionCollectionController),
   router("/eventList", new eventListController()),
   router("/eventList", eventListCollectionController),
-  router("/eventLink", new eventLinkController()),
-  router("/eventLink", new eventLinkCollectionController()),
+  router("/eventLink", new eventLinkCollection()),
+  router("/eventLink/:id", new eventLinkController()),
 ];

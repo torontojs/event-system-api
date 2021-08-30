@@ -31,7 +31,7 @@ exports.default = [
     router_1.default("/linkSection", collection_6.default),
     router_1.default("/eventList", new item_5.default()),
     router_1.default("/eventList", collection_4.default),
-    router_1.default("/eventLink", new item_6.default()),
     router_1.default("/eventLink", new collection_5.default()),
+    router_1.default("/eventLink/:id", new item_6.default()),
 ];
 //# sourceMappingURL=routes.js.map
