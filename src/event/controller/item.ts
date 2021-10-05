@@ -11,6 +11,7 @@ export default class Event extends Controller {
     );
 
     // promise table.select().firstPage().then(result => { ... })
+    console.log(ctx.state.params.id);
     return base("Events")
       .find("reccwJa2KqDrGo5Wn")
       .then((record: any) => {
@@ -19,7 +20,7 @@ export default class Event extends Controller {
           _links: {
             self: { href: "http://localhost:8500/event" },
             "attendee-collection": {
-              href: "/event/1/attendees/",
+              href: "/event/attendees",
               title: "Event name attendee's",
             },
             "host-collection": {

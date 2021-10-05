@@ -11,6 +11,7 @@ class Event extends controller_1.default {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
         // promise table.select().firstPage().then(result => { ... })
+        console.log(ctx.state.params.id);
         return base("Events")
             .find("reccwJa2KqDrGo5Wn")
             .then((record) => {
@@ -19,7 +20,7 @@ class Event extends controller_1.default {
                 _links: {
                     self: { href: "http://localhost:8500/event" },
                     "attendee-collection": {
-                        href: "/event/1/attendees/",
+                        href: "/event/attendees",
                         title: "Event name attendee's",
                     },
                     "host-collection": {

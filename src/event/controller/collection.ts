@@ -19,9 +19,12 @@ class EventCollection extends Controller {
             href: "/event/1",
             title: "Event name",
           },
-
           {
             href: "/event/2",
+            title: "Event name",
+          },
+          {
+            href: "/event/3",
             title: "Event name",
           },
         ],

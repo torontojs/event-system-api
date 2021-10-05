@@ -3,20 +3,35 @@ import { Context } from "@curveball/core";
 
 export default class EventList extends Controller {
   async get(ctx: Context) {
-    ctx.response.body = {
-      _link: {
-        self: { href: "http://localhost:8500/eventList" },
-        "attendee-collection": "/eventList",
-      },
-      self: { href: "http://localhost:8500/eventList" },
-      "eventList-collection": "/eventList",
-      name: "Event name1",
-      type: "online or in-person",
-      address: "http:// or 123 Yonge Street, Unit 456",
-      start_date: 1234567890,
-      end_date: 1234567891,
-      description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ...",
-    };
+    var Airtable = require("airtable");
+    var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base(
+      "appzwXHVTy5YZFalo"
+    );
+    // console.log(ctx.state.params.id);
+    return base("Events")
+      .select({
+        // Selecting the first 3 records in Grid view:
+        maxRecords: 3,
+        view: "Grid view",
+      })
+
+      .eachPage((records: any, fetchNextPage: any) => {
+        let list: any = [];
+        //foreach building the items for the links.items array
+        records.forEach((record: any) => {
+          list.push({
+            href: "http://localhost:8500/event/" + record.get("event_id"),
+          });
+        });
+
+        ctx.response.body = {
+          _links: {
+            self: { href: "http://localhost:8500/eventlist" },
+            items: list,
+          },
+        };
+
+        fetchNextPage();
+      });
   }
 }

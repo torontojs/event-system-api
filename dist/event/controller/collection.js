@@ -24,6 +24,10 @@ class EventCollection extends controller_1.default {
                         href: "/event/2",
                         title: "Event name",
                     },
+                    {
+                        href: "/event/3",
+                        title: "Event name",
+                    },
                 ],
             },
             total: 3,

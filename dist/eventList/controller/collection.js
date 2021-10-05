@@ -19,9 +19,12 @@ class EventlistCollection extends controller_1.default {
                     {
                         href: "/event/2",
                     },
+                    {
+                        href: "/event/3",
+                    },
                 ],
             },
-            total: 2,
+            total: 3,
         };
     }
 }
