@@ -4,36 +4,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = __importDefault(require("@curveball/controller"));
-class EventCollection extends controller_1.default {
-    options(ctx) {
-        console.log("hey");
-    }
-    get(ctx) {
-        ctx.response.type = "application/json";
-        ctx.response.body = {
-            _links: {
-                self: {
-                    href: "/event",
+class Event extends controller_1.default {
+    async get(ctx) {
+        var Airtable = require("airtable");
+        var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
+        // console.log(ctx.state.params.id);
+        return base("Events")
+            .select({
+            // Selecting the first 3 records in Grid view:
+            maxRecords: 3,
+            view: "Grid view",
+        })
+            .eachPage((records, fetchNextPage) => {
+            let list = [];
+            //foreach building the items for the links.items array
+            records.forEach((record) => {
+                list.push({
+                    href: "http://localhost:8500/event/" + record.id,
+                });
+            });
+            console.log("a", list);
+            ctx.response.body = {
+                _links: {
+                    self: { href: "http://localhost:8500/eventlist" },
+                    item: list,
                 },
-                item: [
-                    {
-                        href: "/event/1",
-                        title: "Event name",
-                    },
-                    {
-                        href: "/event/2",
-                        title: "Event name",
-                    },
-                    {
-                        href: "/event/3",
-                        title: "Event name",
-                    },
-                ],
-            },
-            total: 3,
-        };
+            };
+            fetchNextPage();
+        });
     }
 }
-exports.default = EventCollection;
+exports.default = Event;
 //set of links to the actual event resource
 //# sourceMappingURL=collection.js.map

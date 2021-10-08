@@ -13,7 +13,7 @@ export default class Event extends Controller {
     // promise table.select().firstPage().then(result => { ... })
     console.log(ctx.state.params.id);
     return base("Events")
-      .find("reccwJa2KqDrGo5Wn")
+      .find(ctx.state.params.id)
       .then((record: any) => {
         console.log("Retrieved", record.id);
         ctx.response.body = {

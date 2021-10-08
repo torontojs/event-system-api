@@ -13,7 +13,7 @@ class Event extends controller_1.default {
         // promise table.select().firstPage().then(result => { ... })
         console.log(ctx.state.params.id);
         return base("Events")
-            .find("reccwJa2KqDrGo5Wn")
+            .find(ctx.state.params.id)
             .then((record) => {
             console.log("Retrieved", record.id);
             ctx.response.body = {

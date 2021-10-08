@@ -1,40 +1,44 @@
 import Controller from "@curveball/controller";
 import { Context } from "@curveball/core";
 
-class EventCollection extends Controller {
-  options(ctx: Context) {
-    console.log("hey");
+
+
+  export default class Event extends Controller {
+    async get(ctx: Context) {
+      var Airtable = require("airtable");
+      var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base(
+        "appzwXHVTy5YZFalo"
+      );
+      // console.log(ctx.state.params.id);
+      return base("Events")
+        .select({
+          // Selecting the first 3 records in Grid view:
+          maxRecords: 3,
+          view: "Grid view",
+        })
+  
+        .eachPage((records: any, fetchNextPage: any) => {
+          let list: any = [];
+          //foreach building the items for the links.items array
+          records.forEach((record: any) => {
+            list.push({
+              href: "http://localhost:8500/event/" + record.id,
+            });
+          });
+          console.log("a",list);
+          ctx.response.body = {
+            _links: {
+              self: { href: "http://localhost:8500/eventlist" },
+              item: list,
+            },
+          };
+  
+          fetchNextPage();
+        });
+    }
   }
 
-  get(ctx: Context) {
-    ctx.response.type = "application/json";
-    ctx.response.body = {
-      _links: {
-        self: {
-          href: "/event",
-        },
 
-        item: [
-          {
-            href: "/event/1",
-            title: "Event name",
-          },
-          {
-            href: "/event/2",
-            title: "Event name",
-          },
-          {
-            href: "/event/3",
-            title: "Event name",
-          },
-        ],
-      },
 
-      total: 3,
-    };
-  }
-}
-
-export default EventCollection;
 
 //set of links to the actual event resource
