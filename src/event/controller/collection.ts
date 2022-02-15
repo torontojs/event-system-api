@@ -13,7 +13,7 @@ import { Context } from "@curveball/core";
       return base("Events")
         .select({
           // Selecting the first 3 records in Grid view:
-          maxRecords: 3,
+          maxRecords: 5,
           view: "Grid view",
         })
   
@@ -22,7 +22,7 @@ import { Context } from "@curveball/core";
           //foreach building the items for the links.items array
           records.forEach((record: any) => {
             list.push({
-              href: "http://localhost:8500/event/" + record.id,
+              href: "http://localhost:8500/event/",
             });
           });
           console.log("a",list);

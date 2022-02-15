@@ -23,7 +23,7 @@ class EventLinkCollection extends Controller {
         ],
       },
 
-      total: 3,
+      total: 5,
     };
   }
 }

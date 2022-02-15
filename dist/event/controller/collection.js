@@ -12,7 +12,7 @@ class Event extends controller_1.default {
         return base("Events")
             .select({
             // Selecting the first 3 records in Grid view:
-            maxRecords: 3,
+            maxRecords: 5,
             view: "Grid view",
         })
             .eachPage((records, fetchNextPage) => {
