@@ -18,7 +18,7 @@ export default class Host extends Controller {
             "host-collection": "/event/host",
           },
           host_name: record.get("host_name"),
-          // host_picture: record.get("host_picture"),
+          host_picture: record.get("host_picture"),
         };
       });
   }
