@@ -15,7 +15,7 @@ export default class Event extends Controller {
     return base("Events")
       .find(ctx.state.params.id)
       .then((record: any) => {
-        console.log("Retrieved", record.id);
+        console.log("Retrieved", record);
         ctx.response.body = {
           _links: {
             self: { href: "http://localhost:8500/event" },
@@ -35,6 +35,7 @@ export default class Event extends Controller {
           type: record.get("type"),
           address: record.get("address"),
           description: record.get("description"),
+          id: ctx.state.params.id
         };
       });
   }

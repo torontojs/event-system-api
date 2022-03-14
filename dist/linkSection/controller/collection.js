@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = __importDefault(require("@curveball/controller"));
-class LinkSectionCollection extends controller_1.default {
+class LinkSection extends controller_1.default {
     get(ctx) {
         ctx.response.type = "application/json";
         ctx.response.body = {
@@ -27,5 +27,6 @@ class LinkSectionCollection extends controller_1.default {
         };
     }
 }
-exports.default = new LinkSectionCollection();
+exports.default = LinkSection;
+// export default new LinkSection();
 //# sourceMappingURL=collection.js.map

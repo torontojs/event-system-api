@@ -18,20 +18,21 @@ const item_4 = __importDefault(require("./attendee/controller/item"));
 // import eventListController from "./eventList/controller/item";
 const item_5 = __importDefault(require("./eventLink/controller/item"));
 const item_6 = __importDefault(require("./linkSection/controller/item"));
+// import ScheduleCollection from "./schedule/controller/collection";
 exports.default = [
-    (0, router_1.default)("/", controller_1.default),
-    (0, router_1.default)("/event", new collection_1.default()),
-    (0, router_1.default)("/event/:id", new item_2.default()),
-    (0, router_1.default)("/schedule/:id", new item_3.default()),
-    (0, router_1.default)("/schedule", collection_3.default),
-    (0, router_1.default)("/attendee/:id", new item_4.default()),
-    (0, router_1.default)("/host", collection_2.default),
-    (0, router_1.default)("/host/:id", new item_1.default()),
-    (0, router_1.default)("/linkSection/:id", new item_6.default()),
-    (0, router_1.default)("/linkSection", collection_5.default),
+    router_1.default("/", controller_1.default),
+    router_1.default("/event", new collection_1.default()),
+    router_1.default("/event/:id", new item_2.default()),
+    router_1.default("/schedule/:id", new item_3.default()),
+    router_1.default("/schedule", new collection_3.default()),
+    router_1.default("/attendee/:id", new item_4.default()),
+    router_1.default("/host", new collection_2.default()),
+    router_1.default("/host/:id", new item_1.default()),
+    router_1.default("/linkSection/:id", new item_6.default()),
+    router_1.default("/linkSection", new collection_5.default()),
     // router("/eventList", new eventListController()),
     // router("/eventList", eventListCollectionController),
-    (0, router_1.default)("/eventLink", new collection_4.default()),
-    (0, router_1.default)("/eventLink/:id", new item_5.default()),
+    router_1.default("/eventLink", new collection_4.default()),
+    router_1.default("/eventLink/:id", new item_5.default()),
 ];
 //# sourceMappingURL=routes.js.map

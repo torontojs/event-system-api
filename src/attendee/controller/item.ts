@@ -8,12 +8,12 @@ export default class Attendee extends Controller {
       "appzwXHVTy5YZFalo"
     );
     return base("Events")
-      .find("rec4RsKkO3Ammh5qE")
+      .find(ctx.state.params.id)
       .then((record: any) => {
-        console.log("Retrieved", record.id);
+        console.log("attendee", record.id);
         ctx.response.body = {
           _link: {
-            self: { href: "http://localhost:8500/event" },
+            self: { href: "http://localhost:8500/attendee" },
             "attendee-collection": "/event/attendee",
           },
           eventAttendees: record.get("eventAttendees"),

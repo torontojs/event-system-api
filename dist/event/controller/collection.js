@@ -19,6 +19,7 @@ class Event extends controller_1.default {
             let list = [];
             //foreach building the items for the links.items array
             records.forEach((record) => {
+                console.log('Retrieved', record.get('start'));
                 list.push({
                     href: "http://localhost:8500/event/" + record.id,
                 });
@@ -26,7 +27,7 @@ class Event extends controller_1.default {
             console.log("a", list);
             ctx.response.body = {
                 _links: {
-                    self: { href: "http://localhost:8500/eventlist" },
+                    self: { href: "http://localhost:8500/event" },
                     item: list,
                 },
             };

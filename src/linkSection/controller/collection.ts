@@ -1,7 +1,7 @@
 import Controller from "@curveball/controller";
 import { Context } from "@curveball/core";
 
-class LinkSectionCollection extends Controller {
+export default class LinkSection extends Controller {
   get(ctx: Context) {
     ctx.response.type = "application/json";
     ctx.response.body = {
@@ -26,4 +26,4 @@ class LinkSectionCollection extends Controller {
   }
 }
 
-export default new LinkSectionCollection();
+// export default new LinkSection();

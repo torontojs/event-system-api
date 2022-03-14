@@ -1,8 +1,6 @@
 import Controller from "@curveball/controller";
 import { Context } from "@curveball/core";
 
-
-
   export default class Event extends Controller {
     async get(ctx: Context) {
       var Airtable = require("airtable");
@@ -20,15 +18,17 @@ import { Context } from "@curveball/core";
         .eachPage((records: any, fetchNextPage: any) => {
           let list: any = [];
           //foreach building the items for the links.items array
+
           records.forEach((record: any) => {
+            console.log('Retrieved', record.get('start'))
             list.push({
-              href: "http://localhost:8500/event/",
+              href: "http://localhost:8500/event/"+ record.id,
             });
           });
           console.log("a",list);
           ctx.response.body = {
             _links: {
-              self: { href: "http://localhost:8500/eventlist" },
+              self: { href: "http://localhost:8500/event" },
               item: list,
             },
           };
@@ -37,8 +37,5 @@ import { Context } from "@curveball/core";
         });
     }
   }
-
-
-
 
 //set of links to the actual event resource

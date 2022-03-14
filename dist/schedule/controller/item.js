@@ -9,12 +9,12 @@ class Schedule extends controller_1.default {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
         return base("Events")
-            .find("recdhczylXmFkomdh")
+            .find(ctx.state.params.id)
             .then((record) => {
             console.log("Retrieved", record.id);
             ctx.response.body = {
                 _link: {
-                    self: { href: "http://localhost:8500/event" },
+                    self: { href: "http://localhost:8500/schedule" },
                     "schedule-collection": "/event/schedule",
                 },
                 start: record.get("start"),
