@@ -8,7 +8,7 @@ export default class Schedule extends Controller {
       "appzwXHVTy5YZFalo"
     );
     // console.log(ctx.state.params.id);
-    return base("Events")
+    return base("Schedules")
       .select({
         // Selecting the first 3 records in Grid view:
         maxRecords: 5,
@@ -20,7 +20,7 @@ export default class Schedule extends Controller {
         //foreach building the items for the links.items array
 
         records.forEach((record: any) => {
-          console.log('schedule', record.get('start'))
+          console.log('schedule', record.get("start"))
           list.push({
             href: "http://localhost:8500/schedule/"+ record.id,
           });
@@ -36,29 +36,4 @@ export default class Schedule extends Controller {
         fetchNextPage();
       });
   }
-
-
-
-  // get(ctx: Context) {
-  //   ctx.response.type = "application/json";
-  //   ctx.response.body = {
-  //     _links: {
-  //       self: {
-  //         href: "/event/1/schedulles",
-  //       },
-  //       event: { href: "/event/1" },
-  //       item: [
-  //         {
-  //           href: "/event/1/schedulle/1",
-  //         },
-  //         {
-  //           href: "/event/2/schedulle/2",
-  //         },
-  //       ],
-  //     },
-  //     total: 2,
-  //   };
-  // }
 }
-
-//export default new Schedule();

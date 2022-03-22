@@ -8,7 +8,7 @@ export default class Schedule extends Controller {
       "appzwXHVTy5YZFalo"
     );
     console.log(ctx.state.params.id);
-    return base("Events")
+    return base("Schedules")
       .find(ctx.state.params.id)
       .then((record: any) => {
         console.log("schedule", record);

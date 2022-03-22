@@ -20,7 +20,7 @@ import { Context } from "@curveball/core";
           //foreach building the items for the links.items array
 
           records.forEach((record: any) => {
-            console.log('Retrieved', record.get('name'))
+            console.log('Retrieved', record.get("name"))
             list.push({
               href: "http://localhost:8500/event/"+ record.id,
             });

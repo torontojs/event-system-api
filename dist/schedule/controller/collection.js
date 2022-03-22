@@ -9,7 +9,7 @@ class Schedule extends controller_1.default {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
         // console.log(ctx.state.params.id);
-        return base("Events")
+        return base("Schedules")
             .select({
             // Selecting the first 3 records in Grid view:
             maxRecords: 5,
@@ -19,7 +19,7 @@ class Schedule extends controller_1.default {
             let list = [];
             //foreach building the items for the links.items array
             records.forEach((record) => {
-                console.log('schedule', record.get('start'));
+                console.log('schedule', record.get("start"));
                 list.push({
                     href: "http://localhost:8500/schedule/" + record.id,
                 });
@@ -36,5 +36,4 @@ class Schedule extends controller_1.default {
     }
 }
 exports.default = Schedule;
-//export default new Schedule();
 //# sourceMappingURL=collection.js.map
