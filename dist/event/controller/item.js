@@ -27,7 +27,10 @@ class Event extends controller_1.default {
                         href: "/event/host",
                         title: "Event name host",
                     },
-                    "schedule-collection": "/event/schedule",
+                    "schedule-collection": {
+                        href: "/event/schedule",
+                        title: "Event schedule",
+                    }
                 },
                 name: record.get("name"),
                 start_time: record.get("start_time"),

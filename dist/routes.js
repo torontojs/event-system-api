@@ -14,17 +14,18 @@ const collection_5 = __importDefault(require("./linkSection/controller/collectio
 const item_1 = __importDefault(require("./host/controller/item"));
 const item_2 = __importDefault(require("./event/controller/item"));
 const item_3 = __importDefault(require("./schedule/controller/item"));
+const collection_6 = __importDefault(require("./attendee/controller/collection"));
 const item_4 = __importDefault(require("./attendee/controller/item"));
 // import eventListController from "./eventList/controller/item";
 const item_5 = __importDefault(require("./eventLink/controller/item"));
 const item_6 = __importDefault(require("./linkSection/controller/item"));
-// import ScheduleCollection from "./schedule/controller/collection";
 exports.default = [
     router_1.default("/", controller_1.default),
     router_1.default("/event", new collection_1.default()),
     router_1.default("/event/:id", new item_2.default()),
     router_1.default("/schedule/:id", new item_3.default()),
     router_1.default("/schedule", new collection_3.default()),
+    router_1.default("/attendee", new collection_6.default()),
     router_1.default("/attendee/:id", new item_4.default()),
     router_1.default("/host", new collection_2.default()),
     router_1.default("/host/:id", new item_1.default()),

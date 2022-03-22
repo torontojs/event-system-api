@@ -7,16 +7,21 @@ export default class Attendee extends Controller {
     var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base(
       "appzwXHVTy5YZFalo"
     );
-    return base("Events")
+    console.log(ctx.state.params.id);
+    return base("Attendee")
       .find(ctx.state.params.id)
       .then((record: any) => {
-        console.log("attendee", record.id);
+        console.log("attendees", record);
         ctx.response.body = {
-          _link: {
+          _links: {
             self: { href: "http://localhost:8500/attendee" },
-            "attendee-collection": "/event/attendee",
+            "attendee-collection": {
+              href: "/event/attendees",
+              title: "Event name attendee's",
+            },
           },
           eventAttendees: record.get("eventAttendees"),
+          id: ctx.state.params.id
         };
       });
   }

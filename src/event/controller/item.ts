@@ -27,7 +27,11 @@ export default class Event extends Controller {
               href: "/event/host",
               title: "Event name host",
             },
-            "schedule-collection": "/event/schedule",
+            "schedule-collection": {
+              href: "/event/schedule",
+              title: "Event schedule",
+            }
+
           },
           name: record.get("name"),
           start_time: record.get("start_time"),

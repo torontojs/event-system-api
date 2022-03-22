@@ -9,11 +9,12 @@ import LinkSectionCollection from "./linkSection/controller/collection";
 import hostController from "./host/controller/item";
 import eventController from "./event/controller/item";
 import scheduleController from "./schedule/controller/item";
+import AttendeeCollection from "./attendee/controller/collection";
 import attendeeController from "./attendee/controller/item";
 // import eventListController from "./eventList/controller/item";
 import eventLinkController from "./eventLink/controller/item";
 import linkSectionController from "./linkSection/controller/item";
-// import ScheduleCollection from "./schedule/controller/collection";
+
 
 export default [
   router("/", homeController),
@@ -21,6 +22,7 @@ export default [
   router("/event/:id", new eventController()),
   router("/schedule/:id", new scheduleController()),
   router("/schedule", new ScheduleCollection()),
+  router("/attendee", new AttendeeCollection()),
   router("/attendee/:id", new attendeeController()),
   router("/host",new HostCollection()),
   router("/host/:id", new hostController()),

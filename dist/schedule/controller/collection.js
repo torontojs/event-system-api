@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = __importDefault(require("@curveball/controller"));
-//import { get } from "http";
 class Schedule extends controller_1.default {
     async get(ctx) {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
+        // console.log(ctx.state.params.id);
         return base("Events")
             .select({
             // Selecting the first 3 records in Grid view:
@@ -19,8 +19,9 @@ class Schedule extends controller_1.default {
             let list = [];
             //foreach building the items for the links.items array
             records.forEach((record) => {
+                console.log('schedule', record.get('start'));
                 list.push({
-                    href: "http://localhost:8500/schedule/",
+                    href: "http://localhost:8500/schedule/" + record.id,
                 });
             });
             console.log("a", list);
@@ -32,28 +33,8 @@ class Schedule extends controller_1.default {
             };
             fetchNextPage();
         });
-        // get(ctx: Context) {
-        //   ctx.response.type = "application/json";
-        //   ctx.response.body = {
-        //     _links: {
-        //       self: {
-        //         href: "/event/1/schedules",
-        //       },
-        //       event: { href: "/event/1" },
-        //       item: [
-        //         {
-        //           href: "/event/1/schedule/1",
-        //         },
-        //         {
-        //           href: "/event/2/schedule/2",
-        //         },
-        //       ],
-        //     },
-        //     total: 5,
-        //   };
-        // }
     }
 }
 exports.default = Schedule;
-// export default new ScheduleCollection ();
+//export default new Schedule();
 //# sourceMappingURL=collection.js.map
