@@ -9,7 +9,7 @@ export default class Host extends Controller {
         "appzwXHVTy5YZFalo"
       );
       // console.log(ctx.state.params.id);
-      return base("Events")
+      return base("Host")
         .select({
           // Selecting the first 3 records in Grid view:
           maxRecords: 5,

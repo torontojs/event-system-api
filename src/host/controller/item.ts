@@ -7,10 +7,10 @@ export default class Host extends Controller {
     var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base(
       "appzwXHVTy5YZFalo"
     );
-    return base("Events")
-      .find("recuzHRtM1pnrucq4")
+    return base("Host")
+      .find(ctx.state.params.id)
       .then((record: any) => {
-        console.log("Retrieved", record.id);
+        console.log("Retrieved", record);
 
         ctx.response.body = {
           _link: {

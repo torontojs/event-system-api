@@ -8,10 +8,10 @@ class Host extends controller_1.default {
     async get(ctx) {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
-        return base("Events")
-            .find("recuzHRtM1pnrucq4")
+        return base("Host")
+            .find(ctx.state.params.id)
             .then((record) => {
-            console.log("Retrieved", record.id);
+            console.log("Retrieved", record);
             ctx.response.body = {
                 _link: {
                     self: { href: "http://localhost:8500/event" },
