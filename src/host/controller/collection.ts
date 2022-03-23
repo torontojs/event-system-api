@@ -21,7 +21,7 @@ export default class Host extends Controller {
           //foreach building the items for the links.items array
 
           records.forEach((record: any) => {
-            console.log('Retrieved', record.get('start'))
+            console.log('Retrieved', record.get("host_name"))
             list.push({
               href: "http://localhost:8500/host/"+ record.id,
             });
@@ -37,30 +37,4 @@ export default class Host extends Controller {
           fetchNextPage();
         });
     }
-
-  
-  // get(ctx: Context) {
-  //   ctx.response.type = "application/json";
-  //   ctx.response.body = {
-  //     _links: {
-  //       self: {
-  //         href: "/event/1/hosts",
-  //         title: "Event host",
-  //       },
-  //       event: { href: "/event/1" },
-
-  //       item: [
-  //         {
-  //           href: "/event/1/host/1",
-  //         },
-  //         {
-  //           href: "/event/2/host/2",
-  //         },
-  //       ],
-  //     },
-  //     total: 5,
-  //   };
-  // }
-}
-
-// export default new Host();
+  }

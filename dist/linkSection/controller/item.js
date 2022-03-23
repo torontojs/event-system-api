@@ -8,13 +8,13 @@ class LinkSection extends controller_1.default {
     async get(ctx) {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
-        return base("Events")
+        return base("LinkSection")
             .find("recjig9jnOynZuEJz")
             .then((record) => {
-            console.log("Retrieved", record.id);
+            console.log("Retrieved", record);
             ctx.response.body = {
                 _link: {
-                    self: { href: "http://localhost:8500/event" },
+                    self: { href: "http://localhost:8500/linkSection" },
                     "linkSection-collection": "/event/linkSection",
                 },
                 date: record.get("date"),

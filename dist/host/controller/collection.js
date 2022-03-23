@@ -19,7 +19,7 @@ class Host extends controller_1.default {
             let list = [];
             //foreach building the items for the links.items array
             records.forEach((record) => {
-                console.log('Retrieved', record.get('start'));
+                console.log('Retrieved', record.get("host_name"));
                 list.push({
                     href: "http://localhost:8500/host/" + record.id,
                 });
@@ -36,5 +36,4 @@ class Host extends controller_1.default {
     }
 }
 exports.default = Host;
-// export default new Host();
 //# sourceMappingURL=collection.js.map
