@@ -41,7 +41,8 @@ export default class Event extends Controller {
           description: record.get("description"),
           id: ctx.state.params.id,
           attendees: record.get("attendees"),
-          schedule: record.get("schedule")
+          schedule: record.get("schedule"),
+          host: record.get("host"),
         };
       });
   }

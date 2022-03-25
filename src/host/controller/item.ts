@@ -19,6 +19,7 @@ export default class Host extends Controller {
           },
           host_name: record.get("host_name"),
           host_picture: record.get("host_picture"),
+          id: ctx.state.params.id
         };
       });
   }
