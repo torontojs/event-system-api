@@ -8,7 +8,7 @@ class Attendee extends controller_1.default {
     async get(ctx) {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
-        return base("Attendee")
+        return base("Attendees")
             .select({
             // Selecting the first 3 records in Grid view:
             maxRecords: 5,

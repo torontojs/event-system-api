@@ -9,7 +9,7 @@ class Attendee extends controller_1.default {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
         console.log(ctx.state.params.id);
-        return base("Attendee")
+        return base("Attendees")
             .find(ctx.state.params.id)
             .then((record) => {
             console.log("attendees", record);
@@ -21,8 +21,8 @@ class Attendee extends controller_1.default {
                         title: "Event name attendee's",
                     },
                 },
-                eventAttendees: record.get("eventAttendees"),
-                id: ctx.state.params.id
+                attendee: record.get("attendee")
+                //id: ctx.state.params.id,
             };
         });
     }

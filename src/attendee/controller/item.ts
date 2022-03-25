@@ -8,7 +8,7 @@ export default class Attendee extends Controller {
       "appzwXHVTy5YZFalo"
     );
     console.log(ctx.state.params.id);
-    return base("Attendee")
+    return base("Attendees")
       .find(ctx.state.params.id)
       .then((record: any) => {
         console.log("attendees", record);
@@ -20,8 +20,8 @@ export default class Attendee extends Controller {
               title: "Event name attendee's",
             },
           },
-          eventAttendees: record.get("eventAttendees"),
-          id: ctx.state.params.id
+          attendee: record.get("attendee")
+          //id: ctx.state.params.id,
         };
       });
   }
