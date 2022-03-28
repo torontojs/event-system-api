@@ -9,7 +9,7 @@ class Event extends controller_1.default {
     async get(ctx) {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
-        return base("Events")
+        return base("EventLink")
             .find("reccwJa2KqDrGo5Wn")
             .then((record) => {
             console.log("Retrieved", record.id);
@@ -32,6 +32,10 @@ class Event extends controller_1.default {
                 type: record.get("type"),
                 address: record.get("address"),
                 description: record.get("description"),
+                id: ctx.state.params.id,
+                attendees: record.get("attendees"),
+                schedule: record.get("schedule"),
+                host: record.get("host"),
             };
         });
     }

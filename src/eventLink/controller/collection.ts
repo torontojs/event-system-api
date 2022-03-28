@@ -1,33 +1,42 @@
 import Controller from "@curveball/controller";
 import { Context } from "@curveball/core";
 
-class EventLinkCollection extends Controller {
-  get(ctx: Context) {
-    ctx.response.type = "application/json";
-    ctx.response.body = {
-      _links: {
-        self: {
-          href: "/eventlink",
-        },
 
-        item: [
-          {
-            href: "/eventlink/1",
-            title: "Event name",
+export default class EventLink extends Controller {
+  async get(ctx: Context) {
+    var Airtable = require("airtable");
+    var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base(
+      "appzwXHVTy5YZFalo"
+    );
+    // console.log(ctx.state.params.id);
+    return base("EventLink")
+      .select({
+        // Selecting the first 3 records in Grid view:
+        maxRecords: 5,
+        view: "Grid view",
+      })
+
+      .eachPage((records: any, fetchNextPage: any) => {
+        let list: any = [];
+        //foreach building the items for the links.items array
+
+        records.forEach((record: any) => {
+          console.log('Retrieved', record.get("name"))
+          list.push({
+            href: "http://localhost:8500/eventLink/"+ record.id,
+          });
+        });
+        console.log("a",list);
+        ctx.response.body = {
+          _links: {
+            self: { href: "http://localhost:8500/eventLink" },
+            item: list,
           },
+        };
 
-          {
-            href: "/eventlink/2",
-            title: "Event name",
-          },
-        ],
-      },
-
-      total: 5,
-    };
+        fetchNextPage();
+      });
   }
 }
-
-export default EventLinkCollection;
 
 //set of links to the actual event resource

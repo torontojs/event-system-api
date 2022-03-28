@@ -23,13 +23,13 @@ export default class LinkSection extends Controller {
         records.forEach((record: any) => {
           console.log('Retrieved', record.get("date"))
           list.push({
-            href: "http://localhost:8500/host/"+ record.id,
+            href: "http://localhost:8500/LinkSection/"+ record.id,
           });
         });
         console.log("a",list);
         ctx.response.body = {
           _links: {
-            self: { href: "http://localhost:8500/host" },
+            self: { href: "http://localhost:8500/LinkSection" },
             item: list,
           },
         };

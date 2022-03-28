@@ -4,29 +4,37 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = __importDefault(require("@curveball/controller"));
-class EventLinkCollection extends controller_1.default {
-    get(ctx) {
-        ctx.response.type = "application/json";
-        ctx.response.body = {
-            _links: {
-                self: {
-                    href: "/eventlink",
+class EventLink extends controller_1.default {
+    async get(ctx) {
+        var Airtable = require("airtable");
+        var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
+        // console.log(ctx.state.params.id);
+        return base("EventLink")
+            .select({
+            // Selecting the first 3 records in Grid view:
+            maxRecords: 5,
+            view: "Grid view",
+        })
+            .eachPage((records, fetchNextPage) => {
+            let list = [];
+            //foreach building the items for the links.items array
+            records.forEach((record) => {
+                console.log('Retrieved', record.get("name"));
+                list.push({
+                    href: "http://localhost:8500/eventLink/" + record.id,
+                });
+            });
+            console.log("a", list);
+            ctx.response.body = {
+                _links: {
+                    self: { href: "http://localhost:8500/eventLink" },
+                    item: list,
                 },
-                item: [
-                    {
-                        href: "/eventlink/1",
-                        title: "Event name",
-                    },
-                    {
-                        href: "/eventlink/2",
-                        title: "Event name",
-                    },
-                ],
-            },
-            total: 5,
-        };
+            };
+            fetchNextPage();
+        });
     }
 }
-exports.default = EventLinkCollection;
+exports.default = EventLink;
 //set of links to the actual event resource
 //# sourceMappingURL=collection.js.map

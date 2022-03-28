@@ -20,6 +20,7 @@ export default class LinkSection extends Controller {
           date: record.get("date"),
           info: record.get("info"),
           eventLink: record.get("eventLink"),
+          id: ctx.state.params.id,
         };
       });
   }
