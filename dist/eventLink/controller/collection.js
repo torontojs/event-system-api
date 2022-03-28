@@ -9,7 +9,7 @@ class EventLink extends controller_1.default {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
         // console.log(ctx.state.params.id);
-        return base("EventLink")
+        return base("EventLinkPage")
             .select({
             // Selecting the first 3 records in Grid view:
             maxRecords: 5,

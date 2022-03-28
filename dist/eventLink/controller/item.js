@@ -9,7 +9,7 @@ class Event extends controller_1.default {
     async get(ctx) {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
-        return base("EventLink")
+        return base("EventLinkPage")
             .find("reccwJa2KqDrGo5Wn")
             .then((record) => {
             console.log("Retrieved", record.id);

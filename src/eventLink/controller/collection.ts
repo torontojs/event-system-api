@@ -9,7 +9,7 @@ export default class EventLink extends Controller {
       "appzwXHVTy5YZFalo"
     );
     // console.log(ctx.state.params.id);
-    return base("EventLink")
+    return base("EventLinkPage")
       .select({
         // Selecting the first 3 records in Grid view:
         maxRecords: 5,

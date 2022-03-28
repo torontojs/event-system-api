@@ -8,7 +8,7 @@ export default class Event extends Controller {
     var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base(
       "appzwXHVTy5YZFalo"
     );
-    return base("EventLink")
+    return base("EventLinkPage")
       .find("reccwJa2KqDrGo5Wn")
       .then((record: any) => {
         console.log("Retrieved", record.id);
