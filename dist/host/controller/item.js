@@ -11,14 +11,14 @@ class Host extends controller_1.default {
         return base("Host")
             .find(ctx.state.params.id)
             .then((record) => {
-            console.log("Retrieved", record);
+            console.log("Retrieved", record.get("host_picture"));
             ctx.response.body = {
                 _link: {
                     self: { href: "http://localhost:8500/event" },
                     "host-collection": "/event/host",
                 },
                 host_name: record.get("host_name"),
-                host_picture: record.get("host_picture"),
+                host_picture: record.get("host_picture")[0].url,
                 id: ctx.state.params.id
             };
         });

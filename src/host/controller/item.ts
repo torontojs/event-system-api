@@ -10,7 +10,7 @@ export default class Host extends Controller {
     return base("Host")
       .find(ctx.state.params.id)
       .then((record: any) => {
-        console.log("Retrieved", record);
+        console.log("Retrieved", record.get("host_picture"));
 
         ctx.response.body = {
           _link: {
@@ -18,7 +18,7 @@ export default class Host extends Controller {
             "host-collection": "/event/host",
           },
           host_name: record.get("host_name"),
-          host_picture: record.get("host_picture"),
+          host_picture: record.get("host_picture")[0].url,
           id: ctx.state.params.id
         };
       });
