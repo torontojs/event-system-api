@@ -5,26 +5,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 //individual event resources
 const controller_1 = __importDefault(require("@curveball/controller"));
-class Event extends controller_1.default {
+class EventLink extends controller_1.default {
     async get(ctx) {
         var Airtable = require("airtable");
         var base = new Airtable({ apiKey: "key1BPt0W7VMSQko5" }).base("appzwXHVTy5YZFalo");
-        return base("EventLinkPage")
-            .find("reccwJa2KqDrGo5Wn")
+        return base("Events")
+            .find(ctx.state.params.id)
             .then((record) => {
             console.log("Retrieved", record.id);
+            console.log(ctx.state.params.id, "link");
             ctx.response.body = {
                 _links: {
-                    self: { href: "http://localhost:8500/eventlink" },
+                    self: { href: "http://localhost:8500/eventLink" },
                     "attendee-collection": {
-                        href: "/eventlink/1/attendees/",
+                        href: "/eventLink/attendees/",
                         title: "Event name attendee's",
                     },
                     "host-collection": {
-                        href: "/eventlink/host",
+                        href: "/eventLink/host",
                         title: "Event name host",
                     },
-                    "schedule-collection": "/eventlink/schedule",
+                    "schedule-collection": "/eventLink/schedule",
+                    href: "/eventLink/schedule",
+                    title: "Event schedule",
                 },
                 name: record.get("name"),
                 start_time: record.get("start_time"),
@@ -40,5 +43,5 @@ class Event extends controller_1.default {
         });
     }
 }
-exports.default = Event;
+exports.default = EventLink;
 //# sourceMappingURL=item.js.map
