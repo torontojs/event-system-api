@@ -43,6 +43,7 @@ export default class Event extends Controller {
           attendees: record.get("attendees"),
           schedule: record.get("schedule"),
           host: record.get("host"),
+          linkSection: record.get("linkSection"),
         };
       });
   }

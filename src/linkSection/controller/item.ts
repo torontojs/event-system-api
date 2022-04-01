@@ -8,9 +8,9 @@ export default class LinkSection extends Controller {
       "appzwXHVTy5YZFalo"
     );
     return base("LinkSection")
-      .find("recjig9jnOynZuEJz")
+    .find(ctx.state.params.id)
       .then((record: any) => {
-        console.log("Retrieved", record);
+        console.log("link", record.get("eventLink"));
 
         ctx.response.body = {
           _link: {

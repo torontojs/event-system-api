@@ -42,6 +42,7 @@ class Event extends controller_1.default {
                 attendees: record.get("attendees"),
                 schedule: record.get("schedule"),
                 host: record.get("host"),
+                linkSection: record.get("linkSection"),
             };
         });
     }
